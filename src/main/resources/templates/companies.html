@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Company List</title>
+<style type="text/css">
+body {
+	font-family: Arial, sans-serif;
+	margin: 40px;
+}
+
+table {
+	border-collapse: collapse;
+	width: 90%;
+}
+
+th, td {
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+th {
+	background-color: f2f2f2;
+}
+
+a {
+	text-decoration: none;
+}
+
+.add-button {
+	display: inline-block;
+	margin-bottom: 20px;
+	padding: 10px 15px;
+	background-color: green;
+	color: white;
+}
+
+.delete {
+	color: red;
+}
+</style>
+</head>
+<body>
+	<h1>Company List</h1>
+	<a class="add-button" href="/companies/add">Add New Company</a>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Location</th>
+				<th>Industry</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="company:${companies}">
+				<td th:text="${company.id}"></td>
+				<td th:text="${company.name}"></td>
+				<td th:text="${company.location}"></td>
+				<td th:text="${company.industry}"></td>
+				<td th:text="${company.email}"></td>
+				<td th:text="${company.phone}"></td>
+				<td><a class="delete"
+					th:href="@{/companies/delete/{id}(id=${company.id})}">Delete</a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
