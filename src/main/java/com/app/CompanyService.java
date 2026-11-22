@@ -8,7 +8,7 @@ interface Companyrequests{
 	public List<Company> fetchAllCompany();
 	Company addCompany(Company company);
 	Company getAllCompanyById(Long id);
-	public void deleteCompany(Long id);
+	 void deleteCompany(Long id);
 }
 @Service
 public class CompanyService implements Companyrequests{
@@ -30,16 +30,17 @@ public class CompanyService implements Companyrequests{
 		return companyRepo.findById(id).orElseThrow(() -> new RuntimeException("Company not found"));
 	}
 	
+	
+	
 
 	@Override
 	public Company addCompany( Company company) {
 		return companyRepo.save(company);
 	}
 	
-	public 
+	
 
-	@Override
-	void deleteCompany(Long id) {
+	 public void deleteCompany(Long id) {
 		 companyRepo.deleteById(id);
 	}
 	
