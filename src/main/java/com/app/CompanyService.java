@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 interface Companyrequests{
 	public List<Company> fetchAllCompany();
 	Company addCompany(Company company);
-	Company getAllCompanyById(Long id);
+	Company getCompanyById(Long id);
 	 void deleteCompany(Long id);
 }
 @Service
@@ -26,11 +26,10 @@ public class CompanyService implements Companyrequests{
 		return companyRepo.findAll();
 	}
 	
-	public Company getAllCompanyById(Long id) {
+	@Override 
+	public Company getCompanyById(Long id) {
 		return companyRepo.findById(id).orElseThrow(() -> new RuntimeException("Company not found"));
 	}
-	
-	
 	
 
 	@Override
@@ -39,7 +38,7 @@ public class CompanyService implements Companyrequests{
 	}
 	
 	
-
+	@Override 
 	 public void deleteCompany(Long id) {
 		 companyRepo.deleteById(id);
 	}

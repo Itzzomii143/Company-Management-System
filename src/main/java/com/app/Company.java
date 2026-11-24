@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 public class Company {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	private String name;
 	private String location;
 	private String industry;
@@ -32,7 +32,7 @@ public class Company {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Company(int id, String name, String location, String industry, String email, String phone) {
+	public Company(long id, String name, String location, String industry, String email, String phone) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -43,7 +43,7 @@ public class Company {
 	}
 	
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
