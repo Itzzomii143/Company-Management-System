@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Company Details</title>
+</head>
+<body>
+
+    <h1>Company Details</h1>
+
+    <div>
+        <p>Company ID:
+            <span th:text="${company.id}"></span>
+        </p>
+
+        <p>Company Name:
+            <span th:text="${company.name}"></span>
+        </p>
+
+        <p>Location:
+            <span th:text="${company.location}"></span>
+        </p>
+
+        <p>Industry:
+            <span th:text="${company.industry}"></span>
+        </p>
+
+        <p>Email:
+            <span th:text="${company.email}"></span>
+        </p>
+
+        <p>Phone Number:
+            <span th:text="${company.phone}"></span>
+        </p>
+    </div>
+
+    <a th:href="@{/companies}">Back to Companies</a>
+
+</body>
+</html>

@@ -30,13 +30,12 @@ public class CompanyController {
 	}
 	
 	@GetMapping("/{id}")
-	public String fetchcsompanyById(@PathVariable Long id) {
-		companyService.getCompanyById(id);
-		
-		return "companies";
+	public String fetchcompanyById(@PathVariable Long id,Model model) {
+		model.addAttribute("company-details",companyService.getCompanyById(id));
+		return "company-details";
 	}
 	
-	
+		
 	@GetMapping("/add")
 	public  String showAddCompanyForm(Model model){
 		model.addAttribute("company", new Company()); 
